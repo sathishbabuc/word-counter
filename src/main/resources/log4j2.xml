@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="INFO" strict="true" monitorInterval="10">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+        <Layout type="PatternLayout">
+            <Pattern>%-5p %-23d{ISO8601} [%t]: %c{1} - %m%n</Pattern>
+        </Layout>
+    </Console>
+    <Appender type="RollingFile" name="MainLogFile" filename="./logs/word-counter.log"
+      filePattern="./logs/word-counter.log.%d{yyyy-MM-dd}-%i.gz">
+      <Layout type="PatternLayout">
+        <Pattern>%-5p %-23d{ISO8601} [%t] %x: %c{1} - %m%n</Pattern>
+      </Layout>
+      <Policies>
+        <OnStartupTriggeringPolicy />
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="10 MB" />
+      </Policies>
+      <DefaultRolloverStrategy max="10" fileIndex="min" />
+    </Appender>
+    <Appender type="RollingFile" name="PerfLogFile" filename="./logs/word-counter.perf"
+      filePattern="./logs/word-counter.perf.%d{yyyy-MM-dd}-%i.gz">
+      <Layout type="PatternLayout">
+        <Pattern>%-5p %-23d{ISO8601} [%t] %x: %c{1} - %m%n</Pattern>
+      </Layout>
+      <Policies>
+        <OnStartupTriggeringPolicy />
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="10 MB" />
+      </Policies>
+      <DefaultRolloverStrategy max="10" fileIndex="min" />
+    </Appender>
+  </Appenders>
+
+  <Loggers>
+
+    <Logger name="com.informatica.word" level="DEBUG" additivity="false">
+        <AppenderRef ref="MainLogFile"/>
+        <AppenderRef ref="Console"/>
+    </Logger>
+
+    <Logger name="performance" level="INFO" additivity="false">
+        <AppenderRef ref="PerfLogFile"/>
+    </Logger>
+
+    <Root level="WARN">
+        <AppenderRef ref="MainLogFile"/>
+    </Root>
+  </Loggers>
+</Configuration>
