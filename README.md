@@ -22,7 +22,8 @@ As a pre-requisite, install and configure Maven if not present already.
 
 1. Checkout the code to a local system
 2. Execute below command from the checked out location.
-mvn clean install && java -jar target\word-counter-1.0-SNAPSHOT.jar
+
+`mvn clean install && java -jar target\word-counter-1.0-SNAPSHOT.jar`
 
 # Accessing the Application via browser.
 Once the application is started, you should be able to access the swagger url using below url and use the different endpoints. Alternatively, you can use postman
