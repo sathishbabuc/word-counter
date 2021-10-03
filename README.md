@@ -1,4 +1,4 @@
-222222# Assumptions
+# Assumptions
 
 File extension is not validated. File will be processed irrespective of the content as long as it could convert to string content.
 
