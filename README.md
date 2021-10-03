@@ -1,4 +1,4 @@
-# Assumptions
+222222# Assumptions
 
 File extension is not validated. File will be processed irrespective of the content as long as it could convert to string content.
 
@@ -26,4 +26,5 @@ mvn clean install && java -jar target\word-counter-1.0-SNAPSHOT.jar
 
 # Accessing the Application via browser.
 Once the application is started, you should be able to access the swagger url using below url and use the different endpoints. Alternatively, you can use postman
+
 http://localhost:9001/swagger-ui.html
